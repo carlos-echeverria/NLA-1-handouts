@@ -4,4 +4,6 @@
 *.nlg
 *.aux
 *.synctex
-*.blg      
+*.blg
+*.DS_Store
+*.review_q.tex.swp

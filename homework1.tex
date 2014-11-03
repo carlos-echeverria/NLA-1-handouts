@@ -1,0 +1,89 @@
+\documentclass[14pt]{report}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{cmbright}
+\usepackage{euler}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[applemac]{inputenc}
+\usepackage[english]{babel}
+\setlength{\parindent}{0pt}
+\onehalfspace
+
+\begin{document}
+
+\begin{minipage}[t]{0.58\textwidth}
+Technische Universit\"at Berlin\\
+Institut f\"ur Mathematik\\
+Prof. Dr. J\"org Liesen\\
+Carlos Echeverr\'ia\\
+Luis Garcia Ramos
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{flushright}
+Winter Semester 2014/2015\\
+To be submitted in the lecture on 12.11.2014\
+\end{flushright}
+\end{minipage}
+\begin{center}
+\textbf{{Numerical Linear Algebra I}}\\
+\textbf{Homework 1}
+\end{center}
+
+\thispagestyle{empty}
+
+\begin{enumerate}
+  \item[\textbf{Exercise A:}] Let $R\in\mathbb{C}^{n\times n}$ be upper 
+    triangular and normal. Show that $R$ is then diagonal. 
+
+  \item[\textbf{Exercise B:}] Let $R_1\in\mathbb{C}^{n\times n}$ and
+    $R_2\in\mathbb{C}^{n\times n}$ be upper triangular with identical diagonals
+    containing $n$ distinct elements. Suppose that $R_1$ and $R_2$ are 
+    unitarily similar, i.e. $U^HR_1U = R_2$ for some unitary matrix $U$.
+    Show that then $U$ must be diagonal.
+
+  \item[\textbf{Exercise C:}] Suppose that $A$ has $n$ distinct eigenvalues and
+    suppose that $A = U R_1 U^H = V R_2 V^H$, where $U,V$ are unitary and 
+    $R_1, R_2$ satisfy the hypothesis of Excercise B. Show that then $V^H U$ is
+    diagonal.
+
+  \item[\textbf{Exercise D:}] Find an example of a $2\times2$ or $3\times3$
+    matrix where the converse of Exercise C does not hold.
+
+  \item[\textbf{Exercise E:}] Consider the matrix $M(x,y,z)$ for some positive
+    real numbers $x,y,z$.
+    \begin{enumerate}
+      \item[1] Show that all matrices $M(x,y,z)$ are similar, but that two such
+        matrices are unitarily similar if and only if they are identical.
+        (There is a general theory in Shapiro's paper, but I think this can be
+        worked out be hand for the given 3x3 matrix.)
+      \item[2] Compute a formula for the singular values of $M(x,y,z)$. 
+        (We could give this hint: Consider the matrix $M^H M$).
+      \item[3] Conclude using 1. that there exist $M_1$ and $M_2$ with
+        identical singular values which are not unitarily similar.
+      \end{enumerate}
+  
+  \item[\textbf{Programming A:}] We want to investigate the uniqueness
+    of the Schur form. We will use the programming language MATLAB to 
+    investigate this matter numerically. For accurate numerical results we 
+    need to set the output format to double presision. This can be done by
+    typing the command 'format long' in the console. After that, create a
+    script that follows the next steps.
+    \begin{enumerate}
+      \item Set up a $3\times3$ Jordan block with eigenvalue $i$.
+      \item Create $100$ diferent $3\times3$ orthogonal matrices. (hint: the
+        command qr outputs otrhogonal matrices).
+      \item Check the orthogonality of the orthogonal matrices.
+      \item With each of the orthogonal matrices apply a similarity
+        transformation to the Jordan block.
+      \item Compute a Schur form of the transformed matrices.
+    \end{enumerate}
+    Are the obtained matrices the same as the origianl Jordan block? How
+    close are they? Equivalently, you can answer this questions by asking: 
+    Are the orthogonal matrices obtained from QR-factorization really
+    orthogonal? Does the computed Schur form recreate the original eigenvalues?
+    What is the modulus of the (1,3) entry in the computed Schur form?
+
+  \end{enumerate}
+\end{document}

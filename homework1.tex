@@ -80,7 +80,7 @@ To be submitted in office MA371 on 18.11.2014 before 15.00
     sensitivity of the Jordan form with respect to perturbations, using MATLAB
     to perform a numerical experiment. In order to see the significant
     digits in the results, set the output format to double precision. This can
-    be done by typing the command 'format long' in the console. After that,
+    be done by typing the command \verb+`format long'+ in the console. After that,
     create a script that follows the next steps.
 
     \begin{enumerate}
@@ -88,7 +88,9 @@ To be submitted in office MA371 on 18.11.2014 before 15.00
       \item[(b)] Create $50$ diferent $3\times3$ unitary matrices $Q_j$.
       \item[(c)] Apply a similarity transformation ${S}_j=Q^H_jJQ_j$ to the
         Jordan block using each of the orthogonal matrices from (b).
-      \item[(d)] Compute a Schur form of the matrices obtained in (c), i.e., $\tilde{S}_{j}=\tilde{Q}^H_j\tilde{J}_j\tilde{Q}_j$. You can use the MATLAB command \verb+[~,B]=schur(A)+.
+      \item[(d)] Compute a Schur form of the matrices obtained in (c), i.e.,
+      $\tilde{S}_{j}=\tilde{Q}^H_j\tilde{J}_j\tilde{Q}_j$. You can use the
+      MATLAB command \verb+`[~,B]=schur(A)'+.
 \end{enumerate}
 
 Are the obtained matrices the same as the original Jordan block? How

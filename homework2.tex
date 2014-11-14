@@ -1,0 +1,144 @@
+
+\documentclass[10pt]{report}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{cmbright}
+\usepackage{euler}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[applemac]{inputenc}
+\usepackage[english]{babel}
+\usepackage{verbatim}
+\usepackage{algpseudocode}
+
+\setlength{\parindent}{0pt}
+\onehalfspace
+
+\begin{document}
+
+\begin{minipage}[t]{0.58\textwidth}
+Technische Universit\"at Berlin\\
+Institut f\"ur Mathematik\\
+Prof. Dr. J\"org Liesen\\
+Carlos Echeverr\'ia\\
+Luis Garcia Ramos
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{flushright}
+Winter Semester 2014/2015\\
+To be submitted in office MA371 on 02.12.2014 before 15.00
+\end{flushright}
+\end{minipage}
+\begin{center}
+\textbf{{Numerical Linear Algebra I}}\\
+\textbf{Homework 2}
+\end{center}
+
+\thispagestyle{empty}
+
+\begin{enumerate}
+  \item[\textbf{1.}]Show the following inequalities for $A,
+  B\in\mathbb{R}^{n\times n}$, $x\in\mathbb{R}^n$ and 
+  $p\in\mathbb{N}\cup\{\infty\}$
+\begin{enumerate}
+  \item[(a)]$\|AB\|_p\leq\|A\|_p\|B\|_p$,
+  \item[(b)]$\|Ax\|_p\leq\|A\|_p\|x\|_p$.
+\end{enumerate}
+
+\vspace{0.7cm}
+
+ \item[\textbf{2.}] A subset $V$ of a linear space $\mathcal{X}$ is
+ said to be \textit{convex} if, for every $u,v\in V$, $\alpha u+(1-
+ \alpha)v$ is also in $V$, where $0\leq\alpha\leq1$. Show that the
+ closed ball $B=\{u\in\mathcal{X}:\|u\|\leq1\}$ is convex. What does $B$ look
+ like when $\mathcal{X}=C(0,1)$ with the sup-norm?\\
+\begin{center}
+\includegraphics[scale=0.4]{convex}
+\end{center}
+
+\vspace{0.7cm}
+
+\item[\textbf{3.}] Householder factorization is a backward stable algorithm
+  for computing $QR$ factorizations. We can illustrate this by a \verb+MATLAB+
+  experiment carried out in IEEE double precision arithmetic
+  ($\epsilon_{machine}\approx 1.11\times10^{-16}$)
+
+  \begin{enumerate}
+    \item[(a)] Set $R$ to a $50\times50$ upper-triangular matrix with normal
+    random entries.
+    \item[(b)] Set $Q$ to a random orthogonal matrix by orthogonalizing a random
+    matrix.
+    \item[(c)] Set $A$ to the product $QR$, up to rounding errors.
+    \item[(d)] Compute $QR$ factorization $A\approx Q_2R_2$ by Householder
+    triangularization. 
+  \end{enumerate}
+
+  The purpose of these four lines of code is to construct a matrix with a known
+  $QR$ factorization, $A=QR$, which can then be compared with the $QR$
+  factorization $A=Q_2R_2$ computed by Householder triangularization. Actually,
+  because of rounding errors, the $QR$ factors of the computed matrix $A$ are
+  not exactly $Q$ and $R$.
+
+\vspace{0.7cm}
+
+  \item[\textbf{4.}] The task in this exercise is to implement the Gram-Schmidt
+  orthogonalization method in two ways which are mathematically equivalent but
+  produce different results numerically. The method takes a set of linearly
+  independent vectors $v_1,\cdots,v_k\in\mathbb{R}^n$ and computes
+  orthonormalized vectors $u_1,\cdots,u_k\in\mathbb{R}^n$ such that 
+  \verb+span+\{$v_1,\cdots,v_k$\}=\verb+span+\{$u_1,\cdots,u_k$\}. 
+  \begin{enumerate}
+
+    \item[(a)] Write a \verb+MATLAB+ function \verb+U = hw2gs(V)+ which
+    implements the \textit{classical Gram-Schmidt} algoritm:
+    \begin{algorithmic}
+    \State \textbf{Input:} $V=[v_1,\ldots,v_k]\in\mathbb{R}^{n\times k}$ 
+    \For{$i=1, \ldots, k$} 
+    \State $\tilde{u}_i:=v_i-\sum_{j=1}^{i-1}\langle v_i,v_j\rangle u_j$ 
+    \State $u_i:=\frac{\tilde{u}_i}{\|\tilde{u}_i\|_2}$
+    \EndFor
+    \State \textbf{Output:} $U=[u_1,\ldots,u_k]\in\mathbb{R}^{n\times k}$ 
+    \end{algorithmic}
+
+    \item[(b)] Write a \verb+MATLAB+ function \verb+U = hw2mgs(V)+ which
+    implements the \textit{modified Gram-Schmidt} algoritm:
+    \begin{algorithmic}
+    \State \textbf{Input:} $V=[v_1,\ldots,v_k]\in\mathbb{R}^{n\times k}$ 
+    \For{$i=1, \ldots, k$} 
+    \State $\tilde{u}_i:=v_i$
+    \For{$j=1,\ldots,i-1$}
+    \State $\tilde{u}_i:=\tilde{u}_i-\langle \tilde{u}_i,u_j\rangle u_j$ 
+    \EndFor
+    \State $u_i:=\frac{\tilde{u}_i}{\|\tilde{u}_i\|_2}$
+    \EndFor
+    \State \textbf{Output:} $U=[u_1,\ldots,u_k]\in\mathbb{R}^{n\times k}$ 
+    \end{algorithmic}
+          
+    \item[(c)] Examine the level of orthonormality obtained with both algorithms.
+    This can be done by computing the quantity $F(U):=\|I_k-U^TU\|_{fro}$, which
+    measures for the matrix $U$ the departure of the matrix $U^TU$ from the
+    identity matrix $I_k$ with respect to the Frobenius-norm. In exact
+    arithmetic (i.e. without round-off errors) both algorithms would compute
+    a $U$ with $F(U)=0$.
+
+    \item[(d)] Write a \verb+MATLAB+ function \verb+[Fgs,Fmgs]=hw2test()+ wich
+    returns two vectors of length $10$. For each $j=1,\ldots,10$ the function
+    should generate a random matrix $V_j\in\mathbb{R}^{500\times50j}$. This
+    matrix should then be orthonnormalized with both algorithms, i.e.
+    $Ugs_j=hw2gs(V_j)$ and $Umgs_j=hw2mgs(V_j)$. The function should return
+    $Fgs(j)=F(Ugs_j)$ and $Fmgs(j)=F(Umgs_j)$. The quantities stored in $Fgs$
+    and $Fmgs$ should also be visualized in a \textit{single} plot. Useful
+    matlab commands are \verb+semilogy+, \verb+rand+, and \verb+hold+.
+
+  \end{enumerate}
+
+
+
+
+
+
+
+  \end{enumerate}
+
+\end{document}

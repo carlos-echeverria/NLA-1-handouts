@@ -1,6 +1,6 @@
 
 \documentclass[10pt]{report}
-\usepackage{amsmath, amsthm, amssymb}
+\usepackage{amsmath, amsthm, amssymb,mathabx}
 \usepackage{cmbright}
 \usepackage{euler}
 \usepackage{setspace}
@@ -13,6 +13,8 @@
 
 \setlength{\parindent}{0pt}
 \onehalfspace
+
+\newcommand \vv{\vvvert}
 
 \begin{document}
 
@@ -48,21 +50,67 @@ To be submitted in office MA371 on 02.12.2014 before 15.00
 
 \vspace{0.7cm}
 
- \item[\textbf{2.}] A subset $V$ of a linear space $\mathcal{X}$ is
+
+\item[\textbf{1'.}]
+We say that two norms $\| \cdot \|, \vvvert \cdot \vvvert$ on a linear space $X$ are \textit{equivalent} if there exist constants $C_1, C_2 > 0$ such that for all $x \in X$
+\[C_1 \vvvert x \vvvert \leq \|x\| \leq  C_2\vvvert x\vvvert.\]
+One can show that \textit{in a finite dimensional linear space, any two norms are equivalent}. This does not hold for infinite dimensional spaces.
+
+For $x \in \mathbb{C}^{n}$, we define the following norms: 
+\[
+\|x\|_2 =\sqrt{\sum_{i=1}^n |x_i|^2},\quad
+\|x\|_1 = \sum_{i=1}^n |x_i|,\quad
+\|x\|_{\infty} = \max_{i=1, \ldots,n}|x_i|.
+\]
+
+\begin{enumerate}
+  \item[(a)]Prove the inequalities  $\|x\|_2 \leq \|x\|_1 \leq \sqrt{n}\|x\|_2$.
+  \item[(b)]Prove the inequalities  $ \|x\|_\infty \leq \|x\|_2 \leq  \sqrt{n}\|x\|_{\infty}$.
+\end{enumerate}
+
+
+\item[\textbf{2'.}] For an inner product space $(X, (\cdot, \cdot))$ with induced norm $\|x\|= \sqrt{(x, x)}$, recall  the \textit{parallelogram identity}
+\[2 \|x\|^2 + 2\|y\|^2 = \|x+y\|^2 + \|x-y\|^2, \, \text{ for all } x,y \in X.\]
+A theorem of P. Jordan and J. von Neumann (1935) states that \textit{a norm in a linear space comes from an inner product if and only if it satisfies the parallelogram identity}. Using this theorem, show that
+
+\begin{enumerate}
+  \item[(a)] $(\mathbb{R}^n, \| \cdot \|_\infty)$ is not an inner product space.
+  \item[(b)] $(\mathbb{R}^{2 \times 2}, \| \cdot \|_2)$ is not an inner product space, where $\|A\|_2:= \sup_{\|x\|_2=1} \|Ax\|_2$ is the matrix 2-norm.
+
+\end{enumerate}
+
+
+\item[\textbf{3.}]  Recall that a norm $\|\cdot\|$ in $\mathbb{R}^{n \times n}$ is \textit{consistent} if $\|AB\| \leq \|A\| \|B\|$ for all $A, B \in \mathbb{R}^{n \times n}$. 
+\begin{enumerate} 
+\item[(a)]Show that the matrix norm $\|\cdot\|_\infty$ on the space $\mathbb{R}^{2 \times 2}$ is not consistent. 
+(Hint: Let $A= \left[\begin{smallmatrix} 1&1\\1&1 \end{smallmatrix}\right]$ and consider $A^2$.)
+\item[(b)] Show that the norm $n\|\cdot\|_{\infty}$ is consistent in $\mathbb{R}^{n \times n}$.
+
+\vspace{0.7cm}
+\item[\textbf{2.}] A subset $V$ of a linear space $\mathcal{X}$ is
  said to be \textit{convex} if, for every $u,v\in V$, $\alpha u+(1-
  \alpha)v$ is also in $V$, where $0\leq\alpha\leq1$. Show that the
  closed ball $B=\{u\in\mathcal{X}:\|u\|\leq1\}$ is convex. What does $B$ look
  like when $\mathcal{X}=C(0,1)$ with the sup-norm?\\
 \begin{center}
-\includegraphics[scale=0.4]{convex}
+%\includegraphics[scale=0.4]{convex}
 \end{center}
+
+
+
+
+
+
+
+
+
 
 \vspace{0.7cm}
 
-\item[\textbf{3.}] Householder factorization is a backward stable algorithm
-  for computing $QR$ factorizations. We can illustrate this by a \verb+MATLAB+
+\item[\textbf{3.}] The Householder triangularization method is a backward stable algorithm
+  for computing the $QR$ factorization of a matrix. We can illustrate this by a \verb+MATLAB+
   experiment carried out in IEEE double precision arithmetic
-  ($\epsilon_{machine}\approx 1.11\times10^{-16}$)
+  ($\epsilon_{\text{machine}}=2^{-53}\approx 1.11\times10^{-16}$)
 
   \begin{enumerate}
     \item[(a)] Set $R$ to a $50\times50$ upper-triangular matrix with normal
@@ -70,8 +118,8 @@ To be submitted in office MA371 on 02.12.2014 before 15.00
     \item[(b)] Set $Q$ to a random orthogonal matrix by orthogonalizing a random
     matrix.
     \item[(c)] Set $A$ to the product $QR$, up to rounding errors.
-    \item[(d)] Compute $QR$ factorization $A\approx Q_2R_2$ by Householder
-    triangularization. 
+    \item[(d)] Compute the $QR$ factorization $A\approx Q_2R_2$ by Householder
+    triangularization 
   \end{enumerate}
 
   The purpose of these four lines of code is to construct a matrix with a known
@@ -86,7 +134,7 @@ To be submitted in office MA371 on 02.12.2014 before 15.00
   orthogonalization method in two ways which are mathematically equivalent but
   produce different results numerically. The method takes a set of linearly
   independent vectors $v_1,\cdots,v_k\in\mathbb{R}^n$ and computes
-  orthonormalized vectors $u_1,\cdots,u_k\in\mathbb{R}^n$ such that 
+  orthonormal vectors $u_1,\cdots,u_k\in\mathbb{R}^n$ such that 
   \verb+span+\{$v_1,\cdots,v_k$\}=\verb+span+\{$u_1,\cdots,u_k$\}. 
   \begin{enumerate}
 

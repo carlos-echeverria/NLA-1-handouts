@@ -40,17 +40,17 @@ To be submitted in office MA371 on 02.12.2014 before 15.00
 \thispagestyle{empty}
 
 \begin{enumerate}
-  \item[\textbf{1.}]Show the following inequalities for $A,
-  B\in\mathbb{R}^{n\times n}$, $x\in\mathbb{R}^n$ and 
-  $p\in\mathbb{N}\cup\{\infty\}$
-\begin{enumerate}
-  \item[(a)]$\|AB\|_p\leq\|A\|_p\|B\|_p$,
-  \item[(b)]$\|Ax\|_p\leq\|A\|_p\|x\|_p$.
-\end{enumerate}
-\vspace{0.7cm}
+%  \item[\textbf{1.}]Show the following inequalities for $A,
+%  B\in\mathbb{R}^{n\times n}$, $x\in\mathbb{R}^n$ and 
+%  $p\in\mathbb{N}\cup\{\infty\}$
+%\begin{enumerate}
+%  \item[(a)]$\|AB\|_p\leq\|A\|_p\|B\|_p$,
+%  \item[(b)]$\|Ax\|_p\leq\|A\|_p\|x\|_p$.
+%\end{enumerate}
+%\vspace{0.7cm}
 
 
-\item[\textbf{1'.}]
+\item[\textbf{1.}]
 We say that two norms $\| \cdot \|, \vvvert \cdot \vvvert$ on a linear space $X$ are \textit{equivalent} if there exist constants $C_1, C_2 > 0$ such that for all $x \in X$
 \[C_1 \vvvert x \vvvert \leq \|x\| \leq  C_2\vvvert x\vvvert.\]
 One can show that \textit{in a finite dimensional linear space, any two norms are equivalent}. This does not hold for infinite dimensional spaces.
@@ -67,9 +67,9 @@ For $x \in \mathbb{C}^{n}$, recall the following norms:
   \item[(b)]Prove the inequalities  $ \|x\|_\infty \leq \|x\|_2 \leq  \sqrt{n}\|x\|_{\infty}$.
 \end{enumerate}
 
+\vspace{0.7cm}
 
-
-\item[\textbf{2'.}] The $\infty$-norm on the space of matrices $\mathbb{R}^{n \times n}$ is defined as
+\item[\textbf{2.}] The $\infty$-norm on the space of matrices $\mathbb{R}^{n \times n}$ is defined as
 \[\|A\|_{\infty}= \sup_{\|x\|_{\infty}=1} \|Ax\|_{\infty}.\]
 \begin{enumerate} 
 \item[(a)] Show that $\|A\|_{\infty}= \displaystyle{\max_{i=1, \ldots, n}}\sum_{j=1}^n |a_{ij}|$, i.e., the $\infty$-norm of $A$ is the maximum absolute row sum of $A$.
@@ -82,7 +82,7 @@ Recall that a norm $\|\cdot\|$ in $\mathbb{R}^{n \times n}$ is \textit{consisten
 \end{enumerate}
 
 
-
+\pagebreak
 
 \item[\textbf{3.}] For an inner product space $(X, (\cdot, \cdot))$ with induced norm $\|x\|= \sqrt{(x, x)}$, recall  the \textit{parallelogram identity}
 \[2 \|x\|^2 + 2\|y\|^2 = \|x+y\|^2 + \|x-y\|^2, \, \text{ for all } x,y \in X.\]
@@ -96,14 +96,14 @@ A theorem of P. Jordan and J. von Neumann (1935) states that \textit{a norm in a
 
 
 \vspace{0.7cm}
-\item[\textbf{2.}] A subset $V$ of a linear space $\mathcal{X}$ is
- said to be \textit{convex} if, for every $u,v\in V$, $\alpha u+(1-
- \alpha)v$ is also in $V$, where $0\leq\alpha\leq1$. Show that the
- closed ball $B=\{u\in\mathcal{X}:\|u\|\leq1\}$ is convex. What does $B$ look
- like when $\mathcal{X}=C(0,1)$ with the sup-norm?\\
-\begin{center}
+%\item[\textbf{2.}] A subset $V$ of a linear space $\mathcal{X}$ is
+% said to be \textit{convex} if, for every $u,v\in V$, $\alpha u+(1-
+% \alpha)v$ is also in $V$, where $0\leq\alpha\leq1$. Show that the
+% closed ball $B=\{u\in\mathcal{X}:\|u\|\leq1\}$ is convex. What does $B$ look
+% like when $\mathcal{X}=C(0,1)$ with the sup-norm?\\
+%\begin{center}
 %\includegraphics[scale=0.4]{convex}
-\end{center}
+%\end{center}
 
 
 
@@ -114,7 +114,7 @@ A theorem of P. Jordan and J. von Neumann (1935) states that \textit{a norm in a
 
 
 
-\vspace{0.7cm}
+%\vspace{0.7cm}
 
 \item[\textbf{4.}] The Householder triangularization method is a backward stable algorithm
   for computing the $QR$ factorization of a matrix. We can illustrate this by a \verb+MATLAB+
@@ -137,7 +137,7 @@ A theorem of P. Jordan and J. von Neumann (1935) states that \textit{a norm in a
   because of rounding errors, the $QR$ factors of the computed matrix $A$ are
   not exactly $Q$ and $R$.
 
-\vspace{0.7cm}
+\pagebreak
 
   \item[\textbf{5.}] The task in this exercise is to implement the Gram-Schmidt
   orthogonalization method in two ways which are mathematically equivalent but

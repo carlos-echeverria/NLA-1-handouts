@@ -73,6 +73,7 @@ Recall that a norm $\|\cdot\|$ on $\mathbb{R}^{n \times n}$ is \textit{consisten
 
 \item[\textbf{3.}] If $(\cdot,\cdot)$ is an inner product on a vector  space $X$, the induced norm $\|x\|= \sqrt{(x, x)}$ satisfies the \textit{parallelogram identity}
 
+
 \[2 \|x\|^2 + 2\|y\|^2 = \|x+y\|^2 + \|x-y\|^2, \, \text{ for all } x,y \in X.\]
 A theorem of P. Jordan and J. von Neumann (1935) states that \textit{a norm in a vector space is induced by an inner product if and only if it satisfies the parallelogram identity}. Using this theorem, show that
 \begin{enumerate}
@@ -118,7 +119,7 @@ The Householder triangularization method is a backward stable algorithm
   produce different results numerically. The method takes a set of linearly
   independent vectors $v_1,\cdots,v_k\in\mathbb{R}^n$ and computes
   orthonormal vectors $u_1,\cdots,u_k\in\mathbb{R}^n$ such that 
-  \text{span}\{$v_1,\cdots,v_k$\}=\text{span}\{$u_1,\cdots,u_k$\}. 
+  \text{span}{$v_1,\cdots,v_k$\}=\text{span}\{$u_1,\cdots,u_k$\}. 
   \begin{enumerate}
 
     \item[(a)] Write a \verb+MATLAB+ function \verb+U = hw2gs(V)+ which
@@ -162,8 +163,6 @@ The Householder triangularization method is a backward stable algorithm
     $Fgs(j)=F(Ugs_j)$ and $Fmgs(j)=F(Umgs_j)$. The quantities stored in $Fgs$
     and $Fmgs$ should also be visualized in a \textit{single} plot. Useful \verb+MATLAB+ commands are \verb+semilogy+, \verb+rand+, and \verb+hold+.
 \end{enumerate}
+
 \end{enumerate}
-
-
-
 \end{document}

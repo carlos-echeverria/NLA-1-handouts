@@ -40,8 +40,8 @@ To be submitted in office MA371 on 02.12.2014 before 15.00
 \thispagestyle{empty}
 
 
-\begin{enumerate}
-\item[\textbf{1.}]
+
+%\item[\textbf{1.}]
 We say that two norms $\| \cdot \|, \vvvert \cdot \vvvert$ on a vector space $X$ are \textit{equivalent} if there exist constants $C_1, C_2 > 0$ such that for all $x \in X$
 \[C_1 \vvvert x \vvvert \leq \|x\| \leq  C_2\vvvert x\vvvert.\]
 It can be shown that \textit{in a finite dimensional vector space, any two norms are equivalent}, and this does not hold for infinite dimensional spaces. For $x =[x_1, \ldots, x_n]^T \in \mathbb{C}^{n}$, recall the following norms: 
@@ -58,7 +58,7 @@ It can be shown that \textit{in a finite dimensional vector space, any two norms
 \vspace{0.4cm} 
 
 
-\item[\textbf{2.}] The $\infty$-norm on the space of matrices $\mathbb{R}^{n \times n}$ is defined as
+%\item[\textbf{2.}] The $\infty$-norm on the space of matrices $\mathbb{R}^{n \times n}$ is defined as
 \[\|A\|_{\infty}= \sup_{\|x\|_{\infty}=1} \|Ax\|_{\infty}.\]
 \begin{enumerate} 
 \item[(a)] Show that $\|A\|_{\infty}= \displaystyle{\max_{i=1, \ldots, n}}\sum_{j=1}^n |a_{ij}|$, i.e., the $\infty$-norm of $A$ is the maximum absolute row sum of $A$.
@@ -69,10 +69,7 @@ Recall that a norm $\|\cdot\|$ on $\mathbb{R}^{n \times n}$ is \textit{consisten
 \item[(c)] Show that the norm $\| \cdot\|$ on $\mathbb{R}^{n \times n}$ with $\|A\|:=n \|A\|_\infty$ is consistent.
 \end{enumerate}
 \vspace{0.4cm} 
-
-
 \item[\textbf{3.}] If $(\cdot,\cdot)$ is an inner product on a vector  space $X$, the induced norm $\|x\|= \sqrt{(x, x)}$ satisfies the \textit{parallelogram identity}
-
 \[2 \|x\|^2 + 2\|y\|^2 = \|x+y\|^2 + \|x-y\|^2, \, \text{ for all } x,y \in X.\]
 A theorem of P. Jordan and J. von Neumann (1935) states that \textit{a norm in a vector space is induced by an inner product if and only if it satisfies the parallelogram identity}. Using this theorem, show that
 \begin{enumerate}
@@ -88,7 +85,7 @@ A theorem of P. Jordan and J. von Neumann (1935) states that \textit{a norm in a
 
 
 
-\item[\textbf{4.}] 
+%\item[\textbf{4.}] 
 The Householder triangularization method is a backward stable algorithm
   for computing the $QR$ factorization of a matrix. We can illustrate this by a \verb+MATLAB+
   experiment carried out in IEEE double precision arithmetic
@@ -112,13 +109,13 @@ The Householder triangularization method is a backward stable algorithm
 
 \pagebreak
 
- \item[\textbf{5.}]
+ % \item[\textbf{5.}]
  The task in this exercise is to implement the Gram-Schmidt
   orthogonalization method in two ways which are mathematically equivalent but
   produce different results numerically. The method takes a set of linearly
   independent vectors $v_1,\cdots,v_k\in\mathbb{R}^n$ and computes
   orthonormal vectors $u_1,\cdots,u_k\in\mathbb{R}^n$ such that 
-  \text{span}\{$v_1,\cdots,v_k$\}=\text{span}\{$u_1,\cdots,u_k$\}. 
+  \text{span}{$v_1,\cdots,v_k$\}=\text{span}\{$u_1,\cdots,u_k$\}. 
   \begin{enumerate}
 
     \item[(a)] Write a \verb+MATLAB+ function \verb+U = hw2gs(V)+ which
@@ -161,7 +158,6 @@ The Householder triangularization method is a backward stable algorithm
     $Ugs_j=hw2gs(V_j)$ and $Umgs_j=hw2mgs(V_j)$. The function should return
     $Fgs(j)=F(Ugs_j)$ and $Fmgs(j)=F(Umgs_j)$. The quantities stored in $Fgs$
     and $Fmgs$ should also be visualized in a \textit{single} plot. Useful \verb+MATLAB+ commands are \verb+semilogy+, \verb+rand+, and \verb+hold+.
-\end{enumerate}
 \end{enumerate}
 
 

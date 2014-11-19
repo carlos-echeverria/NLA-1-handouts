@@ -87,31 +87,39 @@ A theorem of P. Jordan and J. von Neumann (1935) states that \textit{a norm in a
 
 
 
-\item[\textbf{4.}] 
-The Householder triangularization method is a backward stable algorithm
-  for computing the $QR$ factorization of a matrix. We can illustrate this by a \verb+MATLAB+
-  experiment carried out in IEEE double precision arithmetic
-  ($\epsilon_{\text{machine}}=2^{-53}\approx 1.11\times10^{-16}$)
+%\item[\textbf{4.}] 
+%The Householder triangularization method is a backward stable algorithm
+%  for computing the $QR$ factorization of a matrix. We can illustrate this by a \verb+MATLAB+
+%  experiment carried out in IEEE double precision arithmetic
+%  ($\epsilon_{\text{machine}}=2^{-53}\approx 1.11\times10^{-16}$)
 
-  \begin{enumerate}
-    \item[(a)] Set $R$ to a $50\times50$ upper-triangular matrix with normal
-    random entries.
-    \item[(b)] Set $Q$ to a random orthogonal matrix by orthogonalizing a random
-    matrix.
-    \item[(c)] Set $A$ to the product $QR$, up to rounding errors.
-    \item[(d)] Compute the $QR$ factorization $A\approx Q_2R_2$ by Householder
-    triangularization 
-  \end{enumerate}
+%  \begin{enumerate}
+%    \item[(a)] Set $R$ to a $50\times50$ upper-triangular matrix with normal
+%    random entries.
+%    \item[(b)] Set $Q$ to a random orthogonal matrix by orthogonalizing a random
+%    matrix.
+%    \item[(c)] Set $A$ to the product $QR$, up to rounding errors.
+%    \item[(d)] Compute the $QR$ factorization $A\approx Q_2R_2$ by Householder
+%    triangularization 
+%  \end{enumerate}
 
-  The purpose of these four lines of code is to construct a matrix with a known
-  $QR$ factorization, $A=QR$, which can then be compared with the $QR$
-  factorization $A=Q_2R_2$ computed by Householder triangularization. Actually,
-  because of rounding errors, the $QR$ factors of the computed matrix $A$ are
-  not exactly $Q$ and $R$.
+%  The purpose of these four lines of code is to construct a matrix with a known
+%  $QR$ factorization, $A=QR$, which can then be compared with the $QR$
+%  factorization $A=Q_2R_2$ computed by Householder triangularization. Actually,
+%  because of rounding errors, the $QR$ factors of the computed matrix $A$ are
+%  not exactly $Q$ and $R$.
 
-\pagebreak
+%  \begin{enumerate}
+%    \item[(e)] How accurate is $Q_2$? Compute the relative backward error $\|Q_2-Q\|_2$
+%    \item[(b)] How accurate is $R_2$? Compute the relative error $\frac{\|R_2-R\|_2}{\|R\|_2}$
+%    \item[(c)] Set $A$ to the product $QR$, up to rounding errors.
+%    \item[(d)] Compute the $QR$ factorization $A\approx Q_2R_2$ by Householder
+%    triangularization 
+%  \end{enumerate}
 
- \item[\textbf{5.}]
+%\pagebreak
+
+ \item[\textbf{4.}]
  The task in this exercise is to implement the Gram-Schmidt
   orthogonalization method in two ways which are mathematically equivalent but
   produce different results numerically. The method takes a set of linearly

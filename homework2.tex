@@ -127,7 +127,7 @@ A theorem of P. Jordan and J. von Neumann (1935) states that \textit{a norm in a
     \begin{algorithmic}
     \State \textbf{Input:} $V=[v_1,\ldots,v_k]\in\mathbb{R}^{n\times k}$ 
     \For{$i=1, \ldots, k$} 
-    \State $\tilde{u}_i:=v_i-\sum_{j=1}^{i-1}\langle v_i,v_j\rangle u_j$ 
+    \State $\tilde{u}_i:=v_i-\sum_{j=1}^{i-1}\langle v_i,u_j\rangle u_j$ 
     \State $u_i:=\frac{\tilde{u}_i}{\|\tilde{u}_i\|_2}$
     \EndFor
     \State \textbf{Output:} $U=[u_1,\ldots,u_k]\in\mathbb{R}^{n\times k}$ 
@@ -149,7 +149,7 @@ A theorem of P. Jordan and J. von Neumann (1935) states that \textit{a norm in a
           
     \item[(c)]  Write a function \verb+err=F(U)+ to check the level of orthonormality obtained with both
     algorithms. 
-    This can be done by computing the quantity $F(U):=\|I_k-U^TU\|_{fro}$, which
+    This can be done by computing the quantity $F(U):=\|I_k-U^TU\|_{F}$, which
     measures for the matrix $U$ the departure of the matrix $U^TU$ from the
     identity matrix $I_k$ with respect to the Frobenius-norm. In exact
     arithmetic (i.e. without round-off errors) both algorithms would compute

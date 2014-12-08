@@ -1,0 +1,36 @@
+\documentclass[10pt]{report}
+\usepackage{amsmath, amsthm, amssymb,mathabx}
+\usepackage{cmbright}
+\usepackage{euler}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[applemac]{inputenc}
+\usepackage[english]{babel}
+\usepackage{verbatim}
+\usepackage{algpseudocode}
+
+\setlength{\parindent}{0pt}
+\onehalfspace
+
+\newcommand \vv{\vvvert}
+
+\begin{document}
+We define the norm $\vvvert \cdot \vvvert_{\infty}$ on $\mathbb{C}^{n \times n}$ by
+\[ \vvvert A \vvvert_{\infty} = \max_{i,j=1, \ldots, n} |a_{ij}|\]
+
+First we show that this norm is not consistent. Let 
+\[ A = \left[ \begin{array}{cc} 1 & 1\\ 1 & 1 \end{array} \right],\]
+then $\vvvert A \vvvert_{\infty}= 1$ and since $A^2=2A$ we have $\vvvert A^2\vvvert_{\infty}= 2 \vvvert A \vvvert_{\infty}=2$. Therefore $2=\vvvert A^2 \vvvert_{\infty}>  \vvvert A \vvvert_{\infty}^2=1 $, showing that the norm is not consistent.\\
+
+Now we define the norm $\vvvert \cdot \vvvert$ on $\mathbb{C}^{n \times n}$ by $ \vvvert A \vvvert = n  \vvvert A \vvvert_{\infty}$. We show that this norm is consistent. We have 
+\begin{align*}
+\vvvert AB \vvvert = n \max_{i,j=1, \ldots, n}|(AB)_{ij}|&= n \max_{i,j=1, \ldots, n} \left|\sum_{k=1}^n a_{ik}b_{kj} \right|\\
+&\leq n \max_{i,j=1, \ldots, n}\sum_{k=1}^n |a_{ik}b_{kj}| \\
+&\leq n  \max_{i,j=1, \ldots, n} \left[ n \max_{k=1, \ldots, n}  |a_{ik}b_{kj}| \right] \\
+& \leq n^2 \max_{i,k=1, \ldots, n} |a_{ik}|\max_{j,k=1, \ldots, n} |b_{kj}| \\
+&=n ^2\vvvert A \vvvert_\infty \vvvert B\vvvert_\infty=  \vvvert A \vvvert \vvvert B\vvvert.
+\end{align*} 
+
+
+\end{document}

@@ -29,7 +29,7 @@ Luis Garcia Ramos
 \begin{minipage}[t]{0.48\textwidth}
 \begin{flushright}
 Winter Semester 2014/2015\\
-To be submitted in office MA371 on 06.01.2015 before 15.00
+To be submitted in office MA371 on 08.01.2015 before 15.00
 \end{flushright}
 \end{minipage}
 \begin{center}
@@ -52,7 +52,7 @@ Such a vector is called a \textit{dual vector}. In this problem we will investig
 
   \item[(b)] For $\hat{x}= (1, 1, \ldots, 1)^T \in \mathbb{C}^{n}$ and the norms $\| \cdot \|_{\infty}$, $\| \cdot \|_{1}$, find all $y\in\mathbb{C}^{n}$ dual to $\hat{x}$. \textit{(4 points)}
 
-    \item[(c)] Is there an $\hat{x}\in\mathbb{C}^{n}\setminus\{0\}$ having a uniquely determined dual vector in the infinity norm $\|\cdot\|_{\infty}$? \textit{(4 points)}
+    \item[(c)] Consider $\| \cdot \|= \|\cdot\|_{\infty}$. Is there an $\hat{x}\in\mathbb{C}^{n}\setminus\{0\}$ having a uniquely determined dual vector? \textit{(4 points)}
   \end{enumerate}
 
 \vspace{0.1cm} 
@@ -63,13 +63,13 @@ Such a vector is called a \textit{dual vector}. In this problem we will investig
     %\item[(a)] It can be shown that $\rho(A)\leq 2^{n-1}$ for each $A$. Show that for $n=2$ this inequality holds. Furthermore, characterize all matrices $A\in\mathbb{C}^{2\times 2}$ for which this is true.
 %   % \item[(a)] Show that $\rho(A)\leq2^{n-1}$ ofr each $A$.
 
-\item[(a)] Let $A = LU \in \mathbb{C}^{n \times n}$ be the LU-factorization of $A \in \mathbb{C}^{n \times n}$ with $|l_{ij}| \leq 1$. Let $a_i^T$ and $u_i^T$ denote the $i$-th rows of $A$ and $U$ respectively. Verify the equation
+\item[(a)] Suppose, for simplicity, that $P=I$ (i.e. no row exchanges are necessary), and hence $A=LU$ with $|l_{ij}| \leq 1$. Let $a_i^T$ and $u_i^T$ denote the $i$-th rows of $A$ and $U$ respectively. Verify the equation
 \[u_i^{T}=a_i^T-\sum_{j=1}^{i-1}l_{ij}u_j^T, \,\,\,\,\,\,(i= 1, \ldots, n)\] 
 and use it to show that $\|U\|_{\infty} \leq 2^{n-1}\|A\|_{\infty}$, where $\|\cdot\|_{\infty}$ denotes the induced matrix norm. (Hint: Take norms on both sides of the equation and use induction). \textit{(6 points)}
 
-\item[(b)] \textit{(3 points)} Use the result from (a) to show that for $A \in \mathbb{C}^{n \times n}$
+\item[(b)] \textit{(3 points)} Under the assumptions of (a) show that 
 \[ \rho(A) \leq n2^{n-1}. \,\,\,\,\, \]
-
+(One can show in fact that $\rho(A) \leq 2^{n-1}$.)
 
 
 
@@ -78,13 +78,14 @@ and use it to show that $\|U\|_{\infty} \leq 2^{n-1}\|A\|_{\infty}$, where $\|\c
 
     \item[(c)] \textit{(3 points)}  Show that $\rho(A)=2^{n-1}$ for
     \[A=\left[\begin{array}{rccc}1&&&1\\-1&1&&1\\\vdots&&\ddots&\vdots\\-1&\cdots&-1&1\end{array}\right]\in\mathbb{C}^{n\times n}.\]
+(Hence $A$ is a matrix with the largest possible growth factor.)
     \item[(d)]Compute the following for $n=3,4,...,50$:
       \begin{itemize}
         \item Create a vector $x=\verb+rand+(n,1)$.
         \item Compute a right hand side $b=Ax$, where $A \in \mathbb{C}^{n \times n}$ as in part (c).
         \item Calculate the approximate solution $\hat{x}=A\setminus b$ using \verb+MATLAB's+ backslash operator.
-        \item Calculate the relative forward error $\alpha=\|\hat{x}-x\|/\|x\|$.
-        \item Calculate the relative normwise backward error $\beta=\|r\|/(\|A\|\|\hat{x}\|+\|b\|)$
+        \item Calculate the relative forward error $\alpha=\|\hat{x}-x\|_2/\|x\|_2$.
+        \item Calculate the relative normwise backward error $\beta=\|r\|_2/(\|A\|_2\|\hat{x}\|_2+\|b\|_2)$
         \item Compute $\gamma=\frac{\kappa(A)\beta}{\alpha}$
         \end{itemize}
         Create a plot for $\alpha$, $\beta$ and $\gamma$ as a function of $n$. Explain the outcome of this experiment.  \textit{(6 points)} 

@@ -1,4 +1,3 @@
-
 \documentclass[10pt]{report}
 \usepackage{amsmath, amsthm, amssymb,mathabx}
 \usepackage{cmbright}
@@ -29,7 +28,7 @@ Luis Garcia Ramos
 \begin{minipage}[t]{0.48\textwidth}
 \begin{flushright}
 Winter Semester 2014/2015\\
-To be submitted in office MA371 on 15.01.2015 before 15.00
+To be submitted in office MA371 on 27.01.2015 before 15.00
 \end{flushright}
 \end{minipage}
 \begin{center}
@@ -42,25 +41,56 @@ To be submitted in office MA371 on 15.01.2015 before 15.00
 
 \begin{enumerate}
     
-  \item[\textbf{1.}]Suppose that $A=[a_{ij}]\in\mathbb{C}^{n\times n}$ is a (row) diagonally dominant, i.e. $|a_{ij}|>\sum_{j=1,i\neq j}^n|a_{ij}|$, $i=1,\ldots,n$.
+  \item[\textbf{1.}]Suppose that $A=[a_{ij}]\in\mathbb{C}^{n\times n}$ is  (row) diagonally dominant, i.e. $|a_{ij}|>\sum_{j=1,i\neq j}^n|a_{ij}|$, $i=1,\ldots,n$.
   \begin{enumerate}
-    \item[(a)] Show that the Jacobi method applied to $A$ converges for each initial approximation $x_0$. Hint: Show that $\|R_J\|_{\infty}<1$. \textit{(6 points)}
+    \item[(a)] Show that the Jacobi method applied to $A$ converges for each
+    initial approximation $x_0$.\\ 
+    Hint: Show that $\|R_J\|_{\infty}<1$. \textit{(7 points)}
 
-    \item[(b)] Show that the Gau\ss-Seidel method applied to $A$ converges for each initial approximation $x_0$. Hint: Study the eigenvalues $\lambda$ of the iteration matrix $R_G=-(D-L)^{-1}U$ using the equation $Uy=\lambda(D+L)y$. \textit{(4 points)}
+    \item[(b)] Show that the Gau\ss-Seidel method applied to $A$ converges for
+      each initial approximation $x_0$.\\ 
+      Hint: Study the eigenvalues $\lambda$ of the iteration matrix
+      $R_G=-(D-L)^{-1}U$ using the equation $Uy=\lambda(D+L)y$. 
+      \textit{(7 points)}
   \end{enumerate}
 
 \vspace{0.1cm} 
 
 \item[\textbf{2.}] Consider the matrix $A=\text{tridiag}(-1,2,-1)\in\mathbb{R}^{n\times n}$.
   \begin{enumerate}
-    \item[(a)] Compute $\rho(R_{J/G})$ for the Jacobi and Gau\ss-Seidel methods and $n=10,11,\ldots,100$. \textit{(6 points)}
+    \item[(a)] For  $n=10,11,\ldots,100$, compute $\rho(R_{J/G})$ for the Jacobi and Gau\ss-Seidel methods.\textit{(6 points)}
 
-    \item[(b)] For $n=100$ determine (numerically) an $\omega_*\in(1,2)$ for which the SOR iteration matrix $R_{SOR}(\omega)$ has the smallest spectral radius.
+    \item[(b)] For $n=100$ determine (numerically) an $\omega_*\in(1,2)$ for which the SOR iteration matrix $R_{SOR}(\omega)$ has the smallest spectral radius.\textit{(6 points)}
 
-    \item[(c)] Generate plots of the relative errors $\frac{\|x-x_k\|_{\infty}}{\|x-x_0\|_{\infty}}$ for the Jacobi, Gau\ss-Seidel and SOR (with $\omega_*$ form (b)) methods applied to $Ax=b$ (Compute $b=Ax$ in order to have the exact solution $x$).  \textit{(6 points)} 
+    \item[(c)] Generate plots of the relative errors $\frac{\|x-x_k\|_{\infty}}{\|x-x_0\|_{\infty}}$ for the Jacobi, Gau\ss-Seidel and SOR (with $\omega_*$ form exercise 2b)) methods applied to $Ax=b$. In order to have an exact solution $x$, compute the right hand side vector as $b=Ax$.  \textit{(6 points)} 
     \end{enumerate}
 
 \vspace{0.1cm} 
+
+\item[\textbf{3.}] Let $S_k,C_k\in\mathbb{C}^{n\times k}$ represent bases of the $k$-dimensional subspaces $\mathcal{S}_k,\mathcal{C}_k$ of $\mathbb{C}^N$. Prove that the following statements are equivalent:
+\begin{enumerate}
+  \item[(1)] The matrix $C_K^HAS_k\in\mathbb{C}^{k\times k}$ is nonsingular.
+  \item[(2)] $\mathbb{C}^{N}=A\mathcal{S}_k\oplus\mathcal{C}_k^\perp$.
+\end{enumerate}
+\textit{(15 points)}. 
+\vspace{0.1cm} 
+
+\item[\textbf{4.}] With the notation established in class, prove that a projection method is well defined at step $k$, if $A$ is nonsingular and $\mathcal{C}_n=A\mathcal{S}_n$. \textit{(8 points)}
+
+
+
+%\item[\textbf{3.}] The Jacobi method appears in matrix form as
+%  \[x_{k+1}=R_Jx_k+D^{-1}b.\] There is a simple but important modification that can be made to the Jacobi iteration. We  compute the new Jacobi iterates using
+%  \[x_k^*=\frac{1}{2}\left(x_k^{j-1}+x_k^{j+1}+h^2b_k\right)\]
+%  \begin{enumerate}
+%    \item[(a)] Compute $\rho(R_{J/G})$ for the Jacobi and Gau\ss-Seidel methods and $n=10,11,\ldots,100$. \textit{(6 points)}
+%
+%    \item[(b)] For $n=100$ determine (numerically) an $\omega_*\in(1,2)$ for which the SOR iteration matrix $R_{SOR}(\omega)$ has the smallest spectral radius.
+%
+%    \item[(c)] Generate plots of the relative errors $\frac{\|x-x_k\|_{\infty}}{\|x-x_0\|_{\infty}}$ for the Jacobi, Gau\ss-Seidel and SOR (with $\omega_*$ form (b)) methods applied to $Ax=b$ (Compute $b=Ax$ in order to have the exact solution $x$).  \textit{(6 points)} 
+%    \end{enumerate}
+
+\vspace{3cm} 
 
 \item[\textbf{Note.}] The solutions (.m files) to the programming exercises should be sent by e-mail (1 per group) to the e-mail address: \verb+echeverria@math.tu-berlin.de+ \\
 

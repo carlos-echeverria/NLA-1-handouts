@@ -107,8 +107,8 @@ To solve the system $Ax=b$ use the following four methods, starting with $x_0=0$
 
 \item The function \verb+gmres+ with a Gauss-Seidel iteration as a preconditioner.
 
-\item The function \verb+gmres+ with an incomplete LU factorization as a preconditioner. 
-The drop tolerances should be $\tau = 10^{-2}$. You can use the command \verb+help ilu+ to learn how to compute the incomplete LU factorization with a drop tolerance.
+\item The function \verb+gmres+ with an incomplete $LU$ factorization with zero
+  fill-in $(ILU(0))$ as a preconditioner. You can use the command \verb+help ilu+ to learn how to compute the incomplete LU factorization with zero fill-in.
 \end{itemize} 
 
 \item[(b)] \textit{(4 points).} Generate a plot showing the relative residual norms $\frac{\|r_k\|_2}{\|r_0\|_2}=\frac{\|Ax_k-b\|_{2}}{\|b\|_2}$ against the iteration number for all the methods. Comment on the results. 
